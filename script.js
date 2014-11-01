@@ -1,11 +1,11 @@
 $(function() {
   console.log("Script Ready");
-  Parse.initialize("1Wdznm0p5FSzZa8JuaNwcHr9gJOvSaI6TrZlswtY", "TOB1rXMnKT8WR9z3couSDfjNevEZKzkxhosZqKL2");
- 
-  function addReco(emailAddress, target, problem, solution, feasibility, successCb) {
-    var Reco = Parse.Object.extend("RecoApp");
-    var reco = new Reco();
-    var parsePromise = reco.save({emailAddress: email, target: target, problem: problem, solution: solution, feasibility: feasibility})
+  Parse.initialize("1Wdznm0p5FSzZa8JuaNwcHr9gJOvSaI6TrZlswtY", "8o818BzckfnCL1QdIrQW0gWq5ZkhYTq8m8GgRScX");
+  function addReco(email, target, problem, solution, feasibility, successCb) {
+    console.log(email)
+    var Reco = Parse.Object.extend("Reco");
+    var reco = new Reco(); 
+   var parsePromise = reco.save({emailAddress: email, target: target, problem: problem, solution: solution, feasibility: feasibility});
 
     parsePromise.then(successCb, function(error) {
       alert("could not save record");
@@ -13,6 +13,7 @@ $(function() {
   }
 
   $("form").on("submit", function() {
+
     var Email = $("input[name=email]").val();
     var Target = $("input[name=target]").val();
     var Problem = $("input[name=problem]").val();
@@ -23,7 +24,7 @@ $(function() {
       console.log("Booyaa");
     }
 
-    addReco(emailAddress, target, problem, solution, feasibility, onSuccess);
+   addReco(Email, Target, Problem, Solution, Feasibility, onSuccess);
     return false;
   });
 
@@ -31,21 +32,6 @@ $(function() {
     formElement.reset();
   }
 
-  var loadContacts = function() {
-    console.log("Loading from Parse");
-    var Reco = Parse.Object.extend("RecoApp");
-    var query = new Parse.Query(Reco);
-    query.find({
-      success: function(results) {
-        var newLIs = results.map(function(element) {
-          return $("<li>", { text: element.attributes.name + ": " + element.attributes.email } );
-        });
-      },
-      error: function(error) {
-        alert("Error: " + error.code + " " + error.message);
-      }
-    });
-  };
 
 });
 
