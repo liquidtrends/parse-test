@@ -11,40 +11,36 @@
 </head>
 <body>
   <div class="container">
-    <h2>RecoApp</h2>
-
+   <h2>SocialCounter</h2>
+   <div class="alert alert-success successBox" role="alert">Thank you for your submission!</div>
+   <div class="formBox">
     <form class="form-horizontal">
-      <div class="form-group">
-        <label class="col-sm-3 label-control">Email</label>
-        <div class="col-sm-4">
-          <input type="email" class="form-control" placeholder="Email" name="email" id="email" srequired />
+     
+       <div class="form-group">
+        <label class="col-sm-3 label-control"><i class="fa fa-twitter-square fa-3x"></i></label>
+        <div class="col-sm-9">
+          <input class="form-control" data-slider-range="0,10" data-slider="true" data-slider-step="1" placeholder="Twitter" name="twitter"/>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-sm-3 label-control">What is your age?</label>
+        <label class="col-sm-3 label-control"><i class="fa fa-linkedin-square fa-3x"></i> </label>
         <div class="col-sm-9">
-          <input class="form-control" data-slider-range="0,100" data-slider="true" data-slider-step="1" placeholder="Target" name="target" id="age"  required />
-      </div>
-
-      <div class="form-group">
-        <label class="col-sm-3 label-control">On a scale of 1-10, how important is: </label>
-        <div class="col-sm-9">
-          <input class="form-control" placeholder="Problem" name="problem" required />
+          <input class="form-control" data-slider="true" data-slider-range="0,10" data-slider-step="1"  placeholder="Linkedin" name="linkedin" required />
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-sm-3 label-control">On a scale of 1-10, how strongy do you feel about: </label>
+        <label class="col-sm-3 label-control"><i class="fa fa-stack-overflow fa-3x"></i></label>
         <div class="col-sm-9">
-         <input class="form-control" placeholder="Solution" name="solution" required />
+         <input class="form-control" data-slider="true" data-slider-range="0,10" data-slider-step="1"  placeholder"Stack Overflow" name="stackoverflow" required />
         </div>
       </div>
 
       <div class="form-group">
-        <label class="col-sm-3 label-control">On a scale of 1-10 how often do you: a week</label>
+        <label class="col-sm-3 label-control"><i class="fa fa-angellist fa-3x"></i></label>
         <div class="col-sm-9">
-          <input class="form-control" placeholder="Feasibility" name="feasibility" required />
+          <input class="form-control" data-slider="true" data-slider-range="0,10" data-slider-step="1" placeholder="Angel List" name="angellist" required />
         </div>
       </div>
 
@@ -54,7 +50,8 @@
         </div>
       </div>
     </form>
-
+   </div>
+  <div id="chart_div"></div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -62,6 +59,9 @@
   <script src="//www.parsecdn.com/js/parse-1.3.1.min.js"></script>
   <script src="js/script.js"></script>
   <script src="js/simple-slider.min.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="js/chart.js"></script>
+
 </body>
 </html>
 

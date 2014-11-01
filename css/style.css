@@ -1,2 +1,17 @@
 i[class^=slider] { display: inline-block; margin-bottom: 30px; }
 .output { color: #888; font-size: 14px; padding-top: 1px; margin-left: 5px; vertical-align: top;}
+.successBox {display: none;}
+path.slice{
+	stroke-width:2px;
+}
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+} 
+svg text.percent{
+	fill:white;
+	text-anchor:middle;
+	font-size:12px;
+}

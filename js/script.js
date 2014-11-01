@@ -1,11 +1,11 @@
 $(function() {
   console.log("Script Ready");
-  Parse.initialize("1Wdznm0p5FSzZa8JuaNwcHr9gJOvSaI6TrZlswtY", "8o818BzckfnCL1QdIrQW0gWq5ZkhYTq8m8GgRScX");
-  function addReco(email, target, problem, solution, feasibility, successCb) {
-    console.log(email)
-    var Reco = Parse.Object.extend("Reco");
-    var reco = new Reco(); 
-   var parsePromise = reco.save({emailAddress: email, target: target, problem: problem, solution: solution, feasibility: feasibility});
+  Parse.initialize("0Gc5m4wAAeGfNRigRW1oWQXHAuUUOVRahET7WEmS", "agIgEKyISGDFid3kEWjgmWogEzMg2TVClrnbpAKc");
+  function addSocialCount(twitter, linkedin, stackoverflow, angellist, successCb) {
+    console.log(twitter)
+    var SocialCount = Parse.Object.extend("SocialCount");
+    var socialcount = new SocialCount(); 
+   var parsePromise = socialcount.save({twitter: twitter, linkedin: linkedin, stackoverflow: stackoverflow, angellist: angellist});
 
     parsePromise.then(successCb, function(error) {
       alert("could not save record");
@@ -14,17 +14,16 @@ $(function() {
 
   $("form").on("submit", function() {
 
-    var Email = $("input[name=email]").val();
-    var Target = $("input[name=target]").val();
-    var Problem = $("input[name=problem]").val();
-    var Solution = $("input[name=solution]").val();
-    var Feasibility = $("input[name=feasibility]").val();
+    var twitter = $("input[name=twitter]").val();
+    var linkedin = $("input[name=linkedin]").val();
+    var stackoverflow = $("input[name=stackoverflow]").val();
+    var angellist = $("input[name=angellist]").val();
     var onSuccess = function() {
-      resetForm($("form")[0]);
-      console.log("Booyaa");
+      $('.formBox').hide();
+      $('.successBox').show();
     }
 
-   addReco(Email, Target, Problem, Solution, Feasibility, onSuccess);
+   addSocialCount(twitter, linkedin, stackoverflow, angellist, onSuccess);
     return false;
   });
 
@@ -34,7 +33,7 @@ $(function() {
 
 
 });
-
+$(function(chart) {
 $("[data-slider]")
     .each(function () {
       var input = $(this)
@@ -44,6 +43,9 @@ $("[data-slider]")
     })
     .bind("slider:ready slider:changed", function (event, data) {
       $(this)
-        .nextAll(".output:first")
-          .html(data.value.toFixed(3));
-    });
+       .nextAll(".output:first")
+       .html(data.value.toFixed(3));
+
+});
+
+});
